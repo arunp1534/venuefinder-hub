@@ -6,7 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import authPoster from "@/assets/auth-poster.jpg";
-import authVideo from "@/assets/auth-background.mp4";
+import authVideoAsset from "@/assets/auth-background.mp4.asset.json";
+
+const authVideo = (authVideoAsset as { url: string }).url;
 
 type Mode = "login" | "signup";
 
