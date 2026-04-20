@@ -5,10 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import authPoster from "@/assets/auth-poster.jpg";
-import authVideoAsset from "@/assets/auth-background.mp4.asset.json";
-
-const authVideo = (authVideoAsset as { url: string }).url;
+import AuthBackground from "@/components/AuthBackground";
 
 type Mode = "login" | "signup";
 
@@ -42,20 +39,8 @@ const Auth = () => {
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-[#0b0807] text-white">
-      {/* Cinematic background video — never resets */}
-      <video
-        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out ${
-          showAuth ? "scale-110" : "scale-100"
-        }`}
-        src={authVideo}
-        poster={authPoster}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-      />
+      {/* Cinematic rotating background — 6 clips, crossfaded, never reset */}
+      <AuthBackground zoomed={showAuth} />
 
       {/* Warm color wash + dark gradient overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(20,10,5,0.35)_0%,_rgba(8,5,3,0.85)_85%)]" />
