@@ -51,14 +51,16 @@ export const Header = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="ghost" className="hidden sm:inline-flex rounded-full font-medium">
-            Become a host
+          <Button variant="ghost" className="hidden sm:inline-flex rounded-full font-medium" asChild>
+            <Link to="/auth">Sign in</Link>
           </Button>
-          <Button variant="outline" className="rounded-full border-border/80 hover:shadow-card transition-smooth gap-2 pl-3 pr-1.5 py-1.5 h-auto">
-            <Menu className="w-4 h-4" />
-            <div className="w-7 h-7 rounded-full bg-foreground text-background flex items-center justify-center text-xs font-semibold">
-              SV
-            </div>
+          <Button variant="outline" className="rounded-full border-border/80 hover:shadow-card transition-smooth gap-2 pl-3 pr-1.5 py-1.5 h-auto" asChild>
+            <Link to="/auth">
+              <Menu className="w-4 h-4" />
+              <span className="w-7 h-7 rounded-full bg-foreground text-background flex items-center justify-center text-xs font-semibold">
+                SV
+              </span>
+            </Link>
           </Button>
         </div>
       </div>
